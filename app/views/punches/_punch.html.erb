@@ -1,4 +1,4 @@
-<div class="punch <%= punch.created_at > 1.day.ago ? "today" : "" %>">
+<div class="punch <%= punch.created_at > Time.now.beginning_of_day ? "today" : "" %>">
 	<p>
 		<%= highlight(punch).html_safe %>
 	</p>
