@@ -1,26 +1,52 @@
+body {
+	font-family: Arial, “Helvetica Neue”, Helvetica, sans-serif;
+	color: #202020;
+}
+
+#header h1 a{
+	background: url(../images/clock.png) no-repeat left center;
+	text-decoration: none;
+	color: #202020;
+	padding: 10px;
+	padding-left: 55px;
+}
 #footer {
 	padding-top: 20px;
 	text-align: right;
 }
 
-span.time {
+/*-------------------------------------------Punches-----------------------------------------*/
+
+.time {
 	font-style: italic;
 	color: #777;
+	text-align: right;
+	font-size: .9em;
 }
 
 .punch {
 	margin: 10px 0;
 	padding: 10px;
 	border-bottom: 1px solid #e8e8e8;
+	position: relative;
 }
 .punch p {
-	margin: 0;
+	margin: 5px 0;
 	padding: 0;
 }
 
 .today {
 	background: #f9f9df;
 }
+
+.punch_control {
+	position: absolute;
+	padding: 2px 5px;
+	bottom: 0;
+	left: 0;
+}
+
+/*------------------------------------------Actions - Projects - Clients -----------------------------*/
 
 .important {
 	padding: 2px 5px;
@@ -54,6 +80,8 @@ span.time {
 .client:hover {
 	background: darkgreen;
 }
+
+/*--------------------------------Text Manipulators-------------------------------------*/
 
 span.information {
 	font-size: .75em;
