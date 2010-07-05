@@ -1,10 +1,58 @@
-<h2><%= params[:client] %></h2>
-<%= link_to "Return Home", root_path %>
-<h3>Hours this Week - Starting Monday</h3>
-	<span class="hours"><%= @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes) / 60 %></span>
-<h3>Hours this Month</h3>
-	<span class="hours"><%= @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes) / 60%></span>
-	
+<h2 class="important home"><a href="/" class="home">Home</a></h2><h2 class="important client"><%= params[:client].titleize %></h2>
+
+<h3>Hours by Project</h3>
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<th>Project</th>
+		<th>Today</th>
+		<th>This Week</th>
+		<th>This Month</th>
+		<th>This Year</th>
+	</tr>
+	<% @punches.tag_counts_on(:projects).each do |a| %>
+		<tr class="<%= cycle("even", "odd") %>">
+			<td class="title"><span class="important project"><%= a.name %></span></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
+    <% end %>
+	<tr>
+		<td class="title final"></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes) / 60 %></td>
+	</tr>
+</table>
+
+
+<h3>Hours by Action</h3>
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<th>Action</th>
+		<th>Today</th>
+		<th>This Week</th>
+		<th>This Month</th>
+		<th>This Year</th>
+	</tr>
+	<% @punches.tag_counts_on(:actions).each do |a| %>
+		<tr class="<%= cycle("even", "odd") %>">
+			<td class="title"><span class="important action"><%= a.name %></span></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
+    <% end %>
+	<tr>
+		<td class="title final"></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes) / 60 %></td>
+	</tr>
+</table>
+			
 <h3>Last Six Months for this Client</h3>
 <span class="information">Data on this chart is currently relative and cannot be used to calculate actual time spent</span>
 <%= image_tag six_month_client_action_chart(params[:client]) %>

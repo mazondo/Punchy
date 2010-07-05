@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 	end
 	
 	def show
-		
+		@punches = Punch.tagged_with(params[:project], :as => :project)
 		respond_to do |format|
 			format.html
 		end

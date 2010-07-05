@@ -15,6 +15,13 @@ body {
 	text-align: right;
 }
 
+a {
+	border: none;
+}
+
+a img {
+	border: none;
+}
 /*-------------------------------------------Punches-----------------------------------------*/
 
 .time {
@@ -55,6 +62,25 @@ body {
 	-webkit-border-radius: 5px;
 	color: #fff;
 	text-decoration: none;
+	background: #161616;
+}
+
+h2.important {
+	display: inline;
+	margin: 0px 2px;
+}
+
+h2.important a {
+	text-decoration: none;
+	color: #fff;
+}
+
+h2.important a.home {
+	text-indent: -999999px;
+	padding-left: 35px;
+	background-image: url(../images/home.png);
+	background-repeat: no-repeat;
+	background-position: left center;
 }
 
 .action {
@@ -121,10 +147,11 @@ li {
 	padding: 0;
 }
 
-span.hours {
+.hours {
 	font-style: italic;
 	font-weight: bolder;
 	padding: 2px 5px;
+	text-align: center;
 }
 
 div.key {
@@ -141,4 +168,31 @@ div.key h4 {
 	text-align: center;
 	margin: 0;
 	padding: 0;
+}
+
+th {
+	font-weight: lighter;
+	font-size: .65em;
+	text-transform: uppercase;
+	color: #777;
+	border-bottom: 1px solid #777;
+}
+
+table {
+	margin-top: 10px;
+}
+
+td.title {
+	text-align: center;
+}
+
+td {
+	padding: 5px;
+}
+tr.even {
+	background: #e8e8e8;
+}
+
+td.final {
+	border-top: 1px solid #777;
 }
