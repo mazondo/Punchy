@@ -1,0 +1,19 @@
+<%= form_for(@punch) do |f| %>
+  <% if @punch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@punch.errors.count, "error") %> prohibited this punch from being saved:</h2>
+
+      <ul>
+      <% @punch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.text_field :body, :class => "new_punch" %>
+    <%= f.submit :class => "submit" %>
+    <br />
+    <span class="information">Ex: *Programmed for 1 hour @company_a #website</span>
+<% end %>

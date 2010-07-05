@@ -1,0 +1,9 @@
+<div class="punch <%= punch.created_at > 1.day.ago ? "today" : "" %>">
+	<span class="time"><%= time_ago_in_words punch.created_at %> ago</span>
+	<p>
+		<%= highlight(punch).html_safe %>
+	</p>
+	<%= link_to 'Show', punch %> | 
+    <%= link_to 'Edit', edit_punch_path(punch) %> | 
+    <%= link_to 'Destroy', punch, :confirm => 'Are you sure?', :method => :delete %>
+</div>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  body: MyText
+  duration_in_minutes: 1
+
+two:
+  body: MyText
+  duration_in_minutes: 1

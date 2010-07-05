@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @punch.body %>
+</p>
+
+<p>
+  <b>Duration in minutes:</b>
+  <%= @punch.duration_in_minutes %>
+</p>
+
+<b>Projects: </b> <%= @punch.project_list.to_s %>
+<br />
+<b>Actions: </b> <%= @punch.action_list.to_s %>
+<br />
+<b>Clients: </b> <%= @punch.client_list.to_s %>
+<br />
+
+
+<%= link_to 'Edit', edit_punch_path(@punch) %> |
+<%= link_to 'Back', punches_path %>

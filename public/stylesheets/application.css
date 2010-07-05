@@ -1,0 +1,116 @@
+#footer {
+	padding-top: 20px;
+	text-align: right;
+}
+
+span.time {
+	font-style: italic;
+	color: #777;
+}
+
+.punch {
+	margin: 10px 0;
+	padding: 10px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.punch p {
+	margin: 0;
+	padding: 0;
+}
+
+.today {
+	background: #f9f9df;
+}
+
+.important {
+	padding: 2px 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.action {
+	background: blue;
+}
+
+.project {
+	background: red;
+}
+
+.client {
+	background: green;
+}
+
+.action:hover {
+	background: darkblue;
+}
+
+.project:hover {
+	background: darkred;
+}
+
+.client:hover {
+	background: darkgreen;
+}
+
+span.information {
+	font-size: .75em;
+	color: #777;
+}
+
+input.submit {
+	padding: 5px;
+	color: #fff;
+	background: #202020;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #161616;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+input.submit:hover {
+	background: #161616;
+}
+
+input.new_punch {
+	display: inline;
+	padding: 5px;
+	width: 500px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 5px;
+}
+
+li {
+	margin: 5px;
+	padding: 0;
+}
+
+span.hours {
+	font-style: italic;
+	font-weight: bolder;
+	padding: 2px 5px;
+}
+
+div.key {
+	width: 100px;
+	border: 1px solid #202020;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: #e8e8e8;
+	padding: 10px;
+}
+
+div.key h4 {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}

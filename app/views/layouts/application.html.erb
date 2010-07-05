@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timish</title>
+  <%= stylesheet_link_tag "application", "960" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class="container_12">
+	<div class="grid_12">
+		<div id="header">
+			<h1>Punchy</h1>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="grid_8">
+		<%= yield %>
+	</div>
+	<div class="grid_4">
+		<div class="key">
+		<h4>Input Key</h4>
+		*action
+		<br />
+		#project
+		<br />
+		@client
+		</div>
+		<h3>Recent Projects</h3>
+		<ul class="projects">
+		<% Punch.project_counts.each do |project| %>
+			<li><a href="<%= project_path(:project => project.name) %>" class="project important"><%= project %></a> (<span class="hours"><%= hours_for_project(project) %></span>)</li>
+		<% end %>
+		</ul>
+		
+		<h3>Recent Clients</h3>
+		<ul class="projects">
+		<% Punch.client_counts.each do |client| %>
+			<li><a href="<%= client_path(:client => client.name) %>" class="client important"><%= client %></a> (<span class="hours"><%= hours_for_project(client) %></span>)</li>
+		<% end %>
+		</ul>
+		
+		<h3>Recent Actions</h3>
+		<ul class="projects">
+		<% Punch.action_counts.each do |action| %>
+			<li><a href="<%= action_path(:act => action.name) %>" class="action important"><%= action %></a> (<span class="hours"><%= hours_for_project(action) %></span>)</li>
+		<% end %>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="grid_12" id="footer">
+		&copy 2010 Ryan Quinn
+	</div>
+</div>
+
+</body>
+</html>
