@@ -58,10 +58,11 @@ class PunchesController < ApplicationController
   # PUT /punches/1.xml
   def update
     @punch = Punch.find(params[:id])
+    @punch.attributes = params[:punch]
 
     respond_to do |format|
-      if @punch.update_attributes(params[:punch])
-        format.html { redirect_to(@punch, :notice => 'Punch was successfully updated.') }
+      if @punch.parse_and_save
+        format.html { redirect_to(punches_path, :notice => 'Punch was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

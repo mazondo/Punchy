@@ -35,7 +35,7 @@ class Punch < ActiveRecord::Base
 	def parse_for_time(text)
 		#right now this will only parse dates that look like 1 hour, 1hour using minutes, hours, days or months
 		#1 day is defined to be 8 hours (shouldn't be working longer than this anyways) and 1 month is defined as 30 days (this isn't great, but it's a simple app so it'll work)
-		date_reg = /([0-9]+)\s*(day|week|hour|minute|month)/i #this will go through and find all the instances of a date/time in the body
+		date_reg = /([0-9]+\.?[0-9]{0,2})\s*(day|week|hour|minute|month)/i #this will go through and find all the instances of a date/time in the body
 		time = 0
 		durations = text.scan(date_reg)
 		durations.each do |number, interval| #number is a number, interval will be either day, month, minute or hour

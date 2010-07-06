@@ -1,5 +1,12 @@
 module ApplicationHelper
 	
+	def hours_for_project(project)
+  	minutes = Punch.tagged_with(project).since(1.month.ago).sum(:duration_in_minutes)
+  	hours = minutes / 60
+  	minutes = minutes %= 60 #calculates remaining minutes, not yet used...
+  	hours
+  	end
+	
 	def six_month_client_action_chart(client)
 		require 'google_chart'
 		punches = Punch.tagged_with(client, :as => :client)
