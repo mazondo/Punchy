@@ -57,3 +57,5 @@
 <span class="information">Data on this chart is currently relative and cannot be used to calculate actual time spent</span>
 <%= image_tag six_month_client_action_chart(params[:client]) %>
 	
+<h3>Recent Punches</h3>
+	<%= render @punches.limit(5) %>

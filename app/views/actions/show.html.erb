@@ -52,3 +52,6 @@
 		<td class="hours final"><%= @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes) / 60 %></td>
 	</tr>
 </table>
+
+<h3>Recent Punches</h3>
+	<%= render @punches.limit(5) %>
