@@ -24,7 +24,7 @@ a img {
 }
 /*-------------------------------------------Punches-----------------------------------------*/
 
-.time {
+.date {
 	font-style: italic;
 	color: #777;
 	text-align: right;
@@ -147,13 +147,29 @@ li {
 	padding: 0;
 }
 
-.hours {
+.time {
 	font-style: italic;
 	font-weight: bolder;
 	padding: 2px 5px;
+}
+
+td.hours {
 	text-align: center;
 }
 
+.h {
+	font-size: .75em;
+	color: #444;
+	font-style: normal;
+	margin: 0 2px;
+}
+
+.m {
+	font-size: .75em;
+	color: #444;
+	font-style: normal;
+	margin: 0 2px;
+}
 div.key {
 	width: 100px;
 	border: 1px solid #202020;

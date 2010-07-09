@@ -12,17 +12,17 @@
 	<% @punches.tag_counts_on(:projects).each do |a| %>
 		<tr class="<%= cycle("even", "odd") %>">
 			<td class="title"><span class="important project"><%= a.name %></span></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :projects).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :projects).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :projects).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :projects).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :projects).sum(:duration_in_minutes)) %></td>
     <% end %>
 	<tr>
 		<td class="title final"></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes)) %></td>
 	</tr>
 </table>
 
@@ -39,17 +39,17 @@
 	<% @punches.tag_counts_on(:actions).each do |a| %>
 		<tr class="<%= cycle("even", "odd") %>">
 			<td class="title"><span class="important action"><%= a.name %></span></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
-			<td class="hours"><%= @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :actions).sum(:duration_in_minutes) / 60 %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_day).tagged_with(a, :on => :actions).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_week).tagged_with(a, :on => :actions).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_month).tagged_with(a, :on => :actions).sum(:duration_in_minutes)) %></td>
+			<td class="hours"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_year).tagged_with(a, :on => :actions).sum(:duration_in_minutes)) %></td>
     <% end %>
 	<tr>
 		<td class="title final"></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes) / 60 %></td>
-		<td class="hours final"><%= @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes) / 60 %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_day).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_week).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_month).sum(:duration_in_minutes)) %></td>
+		<td class="hours final"><%= minutes_to_hours( @punches.since(Time.now.beginning_of_year).sum(:duration_in_minutes)) %></td>
 	</tr>
 </table>
 			

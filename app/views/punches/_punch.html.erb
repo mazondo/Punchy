@@ -2,7 +2,7 @@
 	<p>
 		<%= highlight(punch).html_safe %>
 	</p>
-	<div class="time"><%= punch.created_at.strftime("%a, %B %d, %Y") %></div>
+	<div class="date"><%= punch.created_at.strftime("%a, %B %d, %Y") %></div>
 	<div class="punch_control">
     	<%= link_to image_tag("edit.png"), edit_punch_path(punch) %> 
     	<%= link_to image_tag("delete.png"), punch, :confirm => 'Are you sure?', :method => :delete %>

@@ -29,21 +29,21 @@
 		<h3>Recent Projects</h3>
 		<ul class="projects">
 		<% Punch.project_counts.each do |project| %>
-			<li><a href="<%= project_path(:project => project.name) %>" class="project important"><%= project %></a> (<span class="hours"><%= hours_for_project(project) %></span>)</li>
+			<li><a href="<%= project_path(:project => project.name) %>" class="project important"><%= project %></a> (<%= hours_for(project) %>)</li>
 		<% end %>
 		</ul>
 		
 		<h3>Recent Clients</h3>
 		<ul class="projects">
 		<% Punch.client_counts.each do |client| %>
-			<li><a href="<%= client_path(:client => client.name) %>" class="client important"><%= client %></a> (<span class="hours"><%= hours_for_project(client) %></span>)</li>
+			<li><a href="<%= client_path(:client => client.name) %>" class="client important"><%= client %></a> (<%= hours_for(client) %>)</li>
 		<% end %>
 		</ul>
 		
 		<h3>Recent Actions</h3>
 		<ul class="projects">
 		<% Punch.action_counts.each do |action| %>
-			<li><a href="<%= action_path(:act => action.name) %>" class="action important"><%= action %></a> (<span class="hours"><%= hours_for_project(action) %></span>)</li>
+			<li><a href="<%= action_path(:act => action.name) %>" class="action important"><%= action %></a> (<%= hours_for(action) %>)</li>
 		<% end %>
 		</ul>
 	</div>

@@ -1,10 +1,19 @@
 module ApplicationHelper
 	
-	def hours_for_project(project)
+	def hours_for(project)
   	minutes = Punch.tagged_with(project).since(1.month.ago).sum(:duration_in_minutes)
-  	hours = minutes / 60
-  	minutes = minutes %= 60 #calculates remaining minutes, not yet used...
-  	hours
+  	return minutes_to_hours(minutes)
+  	end
+  	
+  	def minutes_to_hours(minutes)
+  		hours = minutes / 60
+  		minutes = minutes %= 60
+  		if minutes > 0
+  		output = "<span class='time'>#{hours}<span class='h'>H</span>#{minutes}<span class='m'>M</span></span>"
+  		else
+  		output = "<span class='time'>#{hours}<span class='h'>H</span></span>"
+  		end
+  		return output.html_safe
   	end
 	
 	def six_month_client_action_chart(client)
