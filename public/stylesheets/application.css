@@ -13,10 +13,17 @@ body {
 #footer {
 	padding-top: 20px;
 	text-align: right;
+	font-size: .75em;
 }
 
 a {
+	text-decoration: none;
+	color: #e98115;
 	border: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 a img {

@@ -10,6 +10,8 @@ module ApplicationHelper
   		minutes = minutes %= 60
   		if minutes > 0
   		output = "<span class='time'>#{hours}<span class='h'>H</span>#{minutes}<span class='m'>M</span></span>"
+  		elsif hours == 0
+  			output = "-"
   		else
   		output = "<span class='time'>#{hours}<span class='h'>H</span></span>"
   		end
@@ -49,6 +51,7 @@ module ApplicationHelper
 		return a.reverse
 	end
 	
+	#this is the highlight function for punches, making sure actions, projects and clients are highlighted
 	def highlight(punch)
 		b = punch.body.dup
 		b.gsub!(punch.project_reg) {|s| "<a href='#{project_path(:project => s.gsub("\#", ''))}' class='important project'>" + s + '</a>'}
@@ -57,6 +60,7 @@ module ApplicationHelper
 		b
 	end
 	
+	#need to generate a random color for the graphs, this could be better like specific colors for specific actions across the board, but this will do for now
 	def random_color
 		"%06x" % (rand * 0xffffff)
 	end
