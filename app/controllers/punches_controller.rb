@@ -2,7 +2,7 @@ class PunchesController < ApplicationController
   # GET /punches
   # GET /punches.xml
   def index
-    @punches = Punch.order("created_at DESC")
+    @punches = Punch.all
     @punch = Punch.new
 
     respond_to do |format|

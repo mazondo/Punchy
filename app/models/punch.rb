@@ -3,6 +3,7 @@ class Punch < ActiveRecord::Base
 	
 	validates_presence_of :body
 	
+	default_scope :order => "created_at DESC"
 	scope :in_last_week, where("punches.created_at > ?", 1.week.ago)
 	scope :in_last_month, where("punches.created_at > ?", 1.month.ago)
 	scope :months_ago, lambda { |lambda| where("punches.created_at > ? AND punches.created_at < ?", lambda.months.ago.beginning_of_month, (lambda - 1).months.ago.beginning_of_month)}
@@ -41,15 +42,15 @@ class Punch < ActiveRecord::Base
 		durations.each do |number, interval| #number is a number, interval will be either day, month, minute or hour
 			case interval.downcase
 			when "day"
-				time = time + (number.to_i * 8 * 60)
+				time = time + (number.to_f * 8 * 60).to_i
 			when "week"
-				time = time + (number.to_i * 5 * 8 * 60 )
+				time = time + (number.to_f * 5 * 8 * 60 ).to_i
 			when "hour"
-				time = time + (number.to_i * 60)
+				time = time + (number.to_f * 60).to_i
 			when "minute"
 				time = time + number.to_i
 			when "month"
-				time = time + (number.to_i * 30 * 8 * 60)
+				time = time + (number.to_f * 30 * 8 * 60).to_i
 			else
 				raise "Invalid time interval"
 			end
