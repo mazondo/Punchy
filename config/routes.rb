@@ -1,5 +1,9 @@
 Timish::Application.routes.draw do |map|
-  resources :punches
+  resources :punches do
+  	collection do
+  		get :autocomplete
+  	end
+  end
   match 'clients' => 'clients#index', :as => :clients
   match 'clients/:client' => 'clients#show', :as => :client
   

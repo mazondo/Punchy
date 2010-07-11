@@ -82,4 +82,31 @@ class PunchesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  #this is the json function for the autocomplete
+  def autocomplete
+  	@tags = nil
+  	unless params[:term].blank?
+  		case params[:term].first
+		when "\#"
+			term = params[:term].gsub("\#", "")
+			@tags = Punch.project_counts.where("tags.name like ?", "%#{term}%").collect! {|p| "\#" + p.name}
+		when "@"
+			term = params[:term].gsub("@", "")
+			@tags = Punch.client_counts.where("tags.name like ?", "%#{term}%").collect! {|c| "@" + c.name}
+		when "*"
+			term = params[:term].gsub("*", "")
+			@tags = Punch.action_counts.where("tags.name like ?", "%#{term}%").collect! {|a| "*" + a.name}
+		else
+			term = params[:term]
+	  	@tags = Punch.project_counts.where("tags.name like ?", "%#{term}%").collect! {|p| "\#" + p.name}
+	  	@tags << Punch.action_counts.where("tags.name like ?", "%#{term}%").collect! {|a| "*" + a.name}
+	  	@tags << Punch.client_counts.where("tags.name like ?", "%#{term}%").collect! {|c| "@" + c.name}
+  		end
+  		@tags.flatten!
+  	end
+  	respond_to do |format|
+  		format.json { render :json => @tags}
+  	end
+  end
 end
