@@ -105,14 +105,17 @@ h2.important a.home {
 
 .action:hover {
 	background: darkblue;
+	text-decoration: none;
 }
 
 .project:hover {
 	background: darkred;
+	text-decoration: none;
 }
 
 .client:hover {
 	background: darkgreen;
+	text-decoration: none;
 }
 
 /*--------------------------------Text Manipulators-------------------------------------*/
