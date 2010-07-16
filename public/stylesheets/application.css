@@ -255,3 +255,63 @@ td.final {
 	border: 2px solid #777;
 	width: 90%;
 }
+
+/*------------------------Pagination------------------------*/
+.pagination {
+  text-align: right;
+  padding: .3em; }
+  .pagination a, .pagination span {
+    padding: .2em .5em; }
+  .pagination span.disabled {
+    color: #AAA; }
+  .pagination span.current {
+    font-weight: bold;
+    color: #FF0084; }
+  .pagination a {
+    border: 1px solid #DDDDDD;
+    color: #0063DC;
+    text-decoration: none; }
+    .pagination a:hover, .pagination a:focus {
+      border-color: #003366;
+      background: #0063DC;
+      color: white; }
+  .pagination .page_info {
+    color: #aaa;
+    padding-top: .8em; }
+  .pagination .prev_page, .pagination .next_page {
+    border-width: 2px; }
+  .pagination .prev_page {
+    margin-right: 1em; }
+  .pagination .next_page {
+    margin-left: 1em; }
+    
+a.more_button {
+	padding: 5px;
+	display: block;
+	background: #fff;
+	border: 2px solid #e98115;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+a.more_button:hover {
+	background-color: #e98115;
+	border-color: #e98115;
+	color: #fff;
+}
+
+div.punches_loader {
+	background: #e98115 url(../images/ajax-loader-white.gif) no-repeat 60% center;
+	display: block;
+	border: 2px solid #e98115;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px;
+	color: #fff;
+	text-align:center;
+}

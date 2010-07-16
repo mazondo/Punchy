@@ -31,6 +31,10 @@ class Punch < ActiveRecord::Base
 		/@\w+/
 	end
 	
+	def self.per_page
+		10
+	end
+	
 	private
 	
 	def parse_for_time(text)

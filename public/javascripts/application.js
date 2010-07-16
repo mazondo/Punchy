@@ -1,7 +1,8 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-
-
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
 $(function() {
 	//these functions are taken nearly verbatim from the jquery-ui demos
 		function split(val) {
@@ -50,19 +51,45 @@ $(function() {
 		
 		//only hide the menu if javascript is enabled
 		$("#advanced_menu").hide()
+		
+		//this loads more punches via js
+		$("a.more_button").click(function() {
+			$.get(this.href, null, null, "script");
+			$(this).parent().html("<div class='punches_loader'>Loading</div>");
+			return false;
+		})
 	});
 	
 /*
-$(function(){
-	$('#autocomplete_punches').autoComplete({
-	ajax: '/punches/autocomplete',
-	ajaxCache: true,
-	multiple: true,
-	multipleSeparator: ' ',
-	autofill: true,
-	striped: 'auto-complete-striped',
-	// Add a delay as autofill takes some time
-	delay: 200
-	});
-});
+var Page = {
+	makeReplyLinks: function() {
+		$("a.reply_link").click(function() {
+			$(this).parent().parent().find("div.new_response").slideDown("fast").show();
+			$(this).hide();
+			return false;
+		})
+		
+		$("a.cancel_link").click(function() {
+			$(this).parent().parent().slideUp("fast").hide();
+			$(this).parent().parent().parent().find("div.reply_link").find("a.reply_link").show();
+			return false;
+		})
+		
+		$("div.new_response #response_form").submit(function() {
+			$.post(this.action, $(this).serialize(), null, "script");
+			$(this)[0].reset();
+			$(this).parent().slideUp("fast").hide();
+			$(this).parent().parent().find("div.reply_link").find("a.reply_link").show();
+			return false;
+		})
+	},
+	
+	makeMoreLink: function() {
+		$("a.more_button").click(function() {
+			$.get(this.href, null, null, "script");
+			$(this).parent().html("<div class='punches_loader'>Loading</div>");
+			return false;
+		})
+	}
+}
 */

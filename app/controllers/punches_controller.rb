@@ -28,12 +28,13 @@ class PunchesController < ApplicationController
   # GET /punches
   # GET /punches.xml
   def index
-    @punches = Punch.all
+    @punches = Punch.all.paginate(:page => params[:page], :per_page => Punch.per_page)
     @punch = Punch.new
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @punches }
+      format.js
     end
   end
 
@@ -132,7 +133,7 @@ class PunchesController < ApplicationController
   		@tags.flatten!
   	end
   	respond_to do |format|
-  		format.json { render :json => @tags}
+  		format.js { render :json => @tags}
   	end
   end
 end

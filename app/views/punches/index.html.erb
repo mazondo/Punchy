@@ -1,5 +1,4 @@
 <%= render 'form' %>
-<%= render @punches %>
 <% if @punches.blank? %>
 	<div class="empty_state">
 		<h2>Welcome to Punchy!</h2>
@@ -19,5 +18,12 @@
 		<p>
 			If you have any issues, please let me know in the issue tracker on github.  Thanks for trying out punchy!
 		</p>
+	</div>
+<% else %>
+	<%= render @punches %>
+	<div class="end_of_punches">
+		<% if @punches.next_page %>
+			<%= link_to "More Punches", punches_path(:page => @punches.next_page), :rel => "more_button", :class => "more_button" %>
+		<% end %>
 	</div>
 <% end %>
