@@ -40,12 +40,16 @@ $(function() {
 		
 		//this is the datepicker for the advanced punches menu
 		$("#punch_date").datepicker({
-			dateFormat: "DD, MM d, yy",
-			showOn: 'button',
-			buttonImage: '/images/calendar.png',
-			buttonImageOnly: true,
-			buttonText: "Change Punch Date"
+			dateFormat: "DD, MM d, yy"
 		});
+		
+		//this is the toggle for the advanced menu
+		$("#show_advanced_menu").click(function() {
+			$("#advanced_menu").toggle("blind", 500);
+		});
+		
+		//only hide the menu if javascript is enabled
+		$("#advanced_menu").hide()
 	});
 	
 /*

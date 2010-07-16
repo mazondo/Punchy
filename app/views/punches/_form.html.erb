@@ -14,9 +14,13 @@
 
 
     <%= f.text_field :body, :class => "new_punch", :id => "autocomplete_punches" %>
-    <%= f.text_field :created_at, :id => "punch_date", :value => Time.now.strftime("%A, %B %d, %Y") %>
     <%= f.submit :class => "submit" %>
-    <br />
+    <div style="text-align:right;">
+    <a href="#" id="show_advanced_menu">Advanced Menu</a>
+    </div>
+    <div id="advanced_menu">
+    <b>Date:</b> <%= f.text_field :created_at, :id => "punch_date", :value => Time.now.strftime("%A, %B %d, %Y") %>
+    </div>
     <span class="information">Ex: *Programmed for 1 hour @company_a #website</span>
 <% end %>
 </div>
