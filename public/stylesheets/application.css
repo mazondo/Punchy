@@ -39,6 +39,12 @@ a img {
 	background: #e8e8e8;
 	padding: 5px;
 }
+
+#show_advanced_menu {
+	float: right;
+	font-size: .8em;
+	padding: 2px 5px;
+}
 .date {
 	font-style: italic;
 	color: #777;
