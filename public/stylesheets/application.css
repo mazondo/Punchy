@@ -31,9 +31,14 @@ a img {
 }
 /*-------------------------------------------Punches-----------------------------------------*/
 
+#new_punch {
+	position: relative;
+}
 
 #punch_date {
-	display: none;
+	width: 0px;
+	height: 0px;
+	border: none;
 }
 
 .date {
