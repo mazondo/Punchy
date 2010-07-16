@@ -1,3 +1,4 @@
+<div id="new_punch">
 <%= form_for(@punch) do |f| %>
   <% if @punch.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,9 @@
 
 
     <%= f.text_field :body, :class => "new_punch", :id => "autocomplete_punches" %>
+    <%= f.text_field :created_at, :id => "punch_date", :value => Time.now.strftime("%A, %B %d, %Y") %>
     <%= f.submit :class => "submit" %>
     <br />
     <span class="information">Ex: *Programmed for 1 hour @company_a #website</span>
 <% end %>
+</div>

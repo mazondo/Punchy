@@ -10,7 +10,7 @@ $(function() {
 		function extractLast(term) {
 			return split(term).pop();
 		}
-		
+		//this is the autocomplete for the punch field
 		$("#autocomplete_punches").autocomplete({
 			source: function(request, response) {
 				$.getJSON("/punches/autocomplete", {
@@ -36,6 +36,15 @@ $(function() {
 				this.value = terms.join(" ");
 				return false;
 			}
+		});
+		
+		//this is the datepicker for the advanced punches menu
+		$("#punch_date").datepicker({
+			dateFormat: "DD, MM d, yy",
+			showOn: 'button',
+			buttonImage: '/images/calendar.png',
+			buttonImageOnly: true,
+			buttonText: "Change Punch Date"
 		});
 	});
 	

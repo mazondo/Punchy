@@ -31,6 +31,11 @@ a img {
 }
 /*-------------------------------------------Punches-----------------------------------------*/
 
+
+#punch_date {
+	display: none;
+}
+
 .date {
 	font-style: italic;
 	color: #777;
@@ -144,7 +149,7 @@ input.submit:hover {
 input.new_punch {
 	display: inline;
 	padding: 5px;
-	width: 450px;
+	width: 430px;
 }
 
 ul {
