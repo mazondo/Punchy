@@ -60,36 +60,13 @@ $(function() {
 		})
 	});
 	
-/*
+
 var Page = {
-	makeReplyLinks: function() {
-		$("a.reply_link").click(function() {
-			$(this).parent().parent().find("div.new_response").slideDown("fast").show();
-			$(this).hide();
-			return false;
-		})
-		
-		$("a.cancel_link").click(function() {
-			$(this).parent().parent().slideUp("fast").hide();
-			$(this).parent().parent().parent().find("div.reply_link").find("a.reply_link").show();
-			return false;
-		})
-		
-		$("div.new_response #response_form").submit(function() {
-			$.post(this.action, $(this).serialize(), null, "script");
-			$(this)[0].reset();
-			$(this).parent().slideUp("fast").hide();
-			$(this).parent().parent().find("div.reply_link").find("a.reply_link").show();
-			return false;
-		})
-	},
-	
 	makeMoreLink: function() {
 		$("a.more_button").click(function() {
 			$.get(this.href, null, null, "script");
 			$(this).parent().html("<div class='punches_loader'>Loading</div>");
 			return false;
-		})
+		});
 	}
 }
-*/
