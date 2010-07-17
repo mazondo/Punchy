@@ -50,14 +50,10 @@ $(function() {
 		});
 		
 		//only hide the menu if javascript is enabled
-		$("#advanced_menu").hide()
+		$("#advanced_menu").hide();
 		
 		//this loads more punches via js
-		$("a.more_button").click(function() {
-			$.get(this.href, null, null, "script");
-			$(this).parent().html("<div class='punches_loader'>Loading</div>");
-			return false;
-		})
+		Page.makeMoreLink();
 	});
 	
 
