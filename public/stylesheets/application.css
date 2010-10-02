@@ -11,6 +11,34 @@ body {
 	padding-left: 55px;
 }
 
+#navigation {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #777;
+	font-size:16px;
+	margin-bottom:10px;
+}
+
+#navigation li {
+	display: inline;
+	margin: 0;
+}
+
+#navigation a {
+	padding:2px 10px;
+	height:55px;
+	background: #777;
+	border-top:1px solid #777;
+	border-right: 1px solid #777;
+	border-left: 1px solid #777;
+	color: #fff;
+}
+
+#navigation.punches .punches, #navigation.reporting .reporting {
+	background: #fff;
+	color: #777;
+}
+
 #footer {
 	padding-top: 20px;
 	text-align: right;

@@ -15,6 +15,10 @@
 	</div>
 	<div class="clear"></div>
 	<div class="grid_8">
+		<ul id="navigation" class="<%= controller.controller_name %>">
+			<li><%= link_to "Punches", punches_path, :class => "punches" %></li>
+			<li><%= link_to "Reports", reporting_punches_path, :class => "reporting" %></li>
+		</ul>
 		<%= yield %>
 	</div>
 	<div class="grid_4">
@@ -35,21 +39,21 @@
 		<h3>Recent Projects</h3>
 		<ul class="projects">
 		<% Punch.project_counts.each do |project| %>
-			<li><a href="<%= project_path(:project => project.name) %>" class="project important"><%= project %></a> (<%= hours_for(project) %>)</li>
+			<li><a href="<%= reporting_punches_path(:project => project.name) %>" class="project important"><%= project %></a> (<%= hours_for(project) %>)</li>
 		<% end %>
 		</ul>
 		
 		<h3>Recent Clients</h3>
 		<ul class="projects">
 		<% Punch.client_counts.each do |client| %>
-			<li><a href="<%= client_path(:client => client.name) %>" class="client important"><%= client %></a> (<%= hours_for(client) %>)</li>
+			<li><a href="<%= reporting_punches_path(:client => client.name) %>" class="client important"><%= client %></a> (<%= hours_for(client) %>)</li>
 		<% end %>
 		</ul>
 		
 		<h3>Recent Actions</h3>
 		<ul class="projects">
 		<% Punch.action_counts.each do |action| %>
-			<li><a href="<%= action_path(:act => action.name) %>" class="action important"><%= action %></a> (<%= hours_for(action) %>)</li>
+			<li><a href="<%= reporting_punches_path(:act => action.name) %>" class="action important"><%= action %></a> (<%= hours_for(action) %>)</li>
 		<% end %>
 		</ul>
 	</div>
