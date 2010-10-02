@@ -7,17 +7,9 @@ Timish::Application.routes.draw do |map|
   
   namespace :reporting do
   	resources :punches
+  	match 'timeline' => 'punches#timeline'
   	root :to => 'punches#index'
   end
-  
-  match 'clients' => 'clients#index', :as => :clients
-  match 'clients/:client' => 'clients#show', :as => :client
-  
-  match 'projects' => 'projects#index', :as => :projects
-  match 'projects/:project' => 'projects#show', :as => :project
-  
-  match 'actions' => 'actions#index', :as => :actions
-  match 'actions/:act' => 'actions#show', :as => :action #had to use act because action is taken by rails
   
   root :to => "punches#index"
 

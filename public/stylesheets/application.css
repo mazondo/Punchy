@@ -176,6 +176,13 @@ h2.important a.home {
 	display:inline;
 }
 
+.reporting_filters a {
+	padding-right:20px;
+	background-image: url(../images/arrow_down.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
 
 .drop_down {
 	margin:0;
@@ -193,6 +200,7 @@ h2.important a.home {
 }
 
 .drop_down a {
+	background-image: none;
 	color:#fff;
 	display:block;
 	padding:2px 5px;
