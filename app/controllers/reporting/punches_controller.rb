@@ -28,6 +28,7 @@ class Reporting::PunchesController < ApplicationController
   # GET /punches
   # GET /punches.xml
   def index
+  	@reporting = true
     @punches = Punch
     if params[:act]
     	@punches = @punches.tagged_with(params[:act], :as => :action)

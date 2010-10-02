@@ -15,7 +15,7 @@
 	</div>
 	<div class="clear"></div>
 	<div class="grid_8">
-		<ul id="navigation" class="<%= controller.controller_name %>">
+		<ul id="navigation" class="<%= @reporting ? "reporting" : "punches" %>">
 			<li><%= link_to "Punches", punches_path, :class => "punches" %></li>
 			<li><%= link_to "Reports", reporting_punches_path, :class => "reporting" %></li>
 		</ul>
