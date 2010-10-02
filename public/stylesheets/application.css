@@ -10,6 +10,7 @@ body {
 	padding: 10px;
 	padding-left: 55px;
 }
+
 #footer {
 	padding-top: 20px;
 	text-align: right;
@@ -29,6 +30,7 @@ a:hover {
 a img {
 	border: none;
 }
+
 /*-------------------------------------------Punches-----------------------------------------*/
 
 #new_punch {
@@ -132,6 +134,73 @@ h2.important a.home {
 	text-decoration: none;
 }
 
+/*--------------------------------Reporting-----------------------------------*/
+.reporting_filters li {
+	float: left;
+	position:relative;
+}
+
+.reporting_filters li ul {
+	display:none;
+}
+
+.reporting_filters li.hover ul, .reporting_filters li:hover ul {
+	display:inline;
+}
+
+
+.drop_down {
+	margin:0;
+	padding:0;
+	z-index:1000;
+	position:absolute;
+	list-style:none;
+	display:inline;
+}
+
+.drop_down li {
+	float:none;
+	overflow:hidden;
+	margin:0;
+}
+
+.drop_down a {
+	color:#fff;
+	display:block;
+	padding:2px 5px;
+	border-bottom:1px solid #161616;
+}
+
+#hours_breakdown {
+	clear:both;
+	position:relative;
+	display:block;
+	padding-top:25px;
+	padding-bottom:25px;
+	margin: 25px auto;
+}
+
+#hours_breakdown h2 {
+	font-size: 1.25em;
+}
+
+#hours_breakdown .section {
+	display:block;
+	float:left;
+	padding:10px;
+	text-align:center;
+	text-transform:uppercase;
+	width:30%;
+	border-bottom:1px solid #777;
+}
+
+#hours_breakdown .right {
+	border-left: 1px solid #777;
+}
+
+#hours_breakdown .left {
+	border-right: 1px solid #777;
+}
 /*--------------------------------Text Manipulators-------------------------------------*/
 
 span.information {

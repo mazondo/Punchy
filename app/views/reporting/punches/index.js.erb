@@ -1,0 +1,7 @@
+$(".end_of_punches").before("<%= escape_javascript(render @punches) %>");
+<% if @punches.next_page %>
+	$(".end_of_punches").html("<%= escape_javascript(link_to("More Punches", punches_path(:page => @punches.next_page), :rel => "more_button", :class => "more_button")) %>");
+	Page.makeMoreLink();
+<% else %>
+	$(".end_of_punches").html("");
+<% end %>

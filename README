@@ -22,6 +22,12 @@ heroku rake db:migrate
 
 and you're done!
 
+==But the days are all messed up?
+
+Punchy is currently set to US Mountain Time.  If you live elsewhere, you'll need to update the setting in config/application.rb to suit your needs.
+
+==License
+
 Released under the MIT License:
 
  Copyright (c) 2010 Ryan Quinn

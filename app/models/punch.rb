@@ -9,6 +9,17 @@ class Punch < ActiveRecord::Base
 	scope :months_ago, lambda { |lambda| where("punches.created_at > ? AND punches.created_at < ?", lambda.months.ago.beginning_of_month, (lambda - 1).months.ago.beginning_of_month)}
 	scope :since, lambda { |lambda| where("punches.created_at > ?", lambda)}
 	
+	#sum hours scopes
+	def self.hours_today
+		self.since(Time.now.beginning_of_day).sum(:duration_in_minutes)
+	end
+	def self.hours_this_week
+		self.since(Time.now.beginning_of_week).sum(:duration_in_minutes)
+	end
+	def self.hours_this_month
+		self.since(Time.now.beginning_of_month).sum(:duration_in_minutes)
+	end
+	
 	def parse_and_save
 		if self.valid?
 			self.duration_in_minutes = parse_for_time(body)

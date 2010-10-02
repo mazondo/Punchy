@@ -1,0 +1,26 @@
+<div id="new_punch">
+<%= form_for(@punch) do |f| %>
+  <% if @punch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@punch.errors.count, "error") %> prohibited this punch from being saved:</h2>
+
+      <ul>
+      <% @punch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.text_field :body, :class => "new_punch", :id => "autocomplete_punches" %>
+    <%= f.submit :class => "submit" %>
+    <div>
+    <a href="#" id="show_advanced_menu">Advanced Menu</a>
+    <span class="information">Ex: *Programmed for 1 hour @company_a #website</span>
+    </div>
+    <div id="advanced_menu">
+    <b>Date:</b> <%= f.text_field :created_at, :id => "punch_date" %>
+    </div>
+<% end %>
+</div>

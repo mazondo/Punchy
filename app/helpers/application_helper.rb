@@ -54,10 +54,15 @@ module ApplicationHelper
 	#this is the highlight function for punches, making sure actions, projects and clients are highlighted
 	def highlight(punch)
 		b = punch.body.dup
-		b.gsub!(punch.project_reg) {|s| "<a href='#{project_path(:project => s.gsub("\#", ''))}' class='important project'>" + s + '</a>'}
-		b.gsub!(punch.action_reg) {|s| "<a href='#{action_path(:act => s.gsub("*", ""))}' class='important action'>" + s + '</a>'}
-		b.gsub!(punch.client_reg) {|s| "<a href='#{client_path(:client => s.gsub("@", ""))}' class='important client'>" + s + '</a>'}
+		b.gsub!(punch.project_reg) {|s| "<a href='#{reporting_punches_path(:project => s.gsub("\#", ''))}' class='important project'>" + s + '</a>'}
+		#need to use act instead of action to avoid messing up rails
+		b.gsub!(punch.action_reg) {|s| "<a href='#{reporting_punches_path(:act => s.gsub("*", ""))}' class='important action'>" + s + '</a>'}
+		b.gsub!(punch.client_reg) {|s| "<a href='#{reporting_punches_path(:client => s.gsub("@", ""))}' class='important client'>" + s + '</a>'}
 		b
+	end
+	
+	def reporting_path(action, project, client)
+		reporting_punches_path(:act => action, :project => project, :client => client)
 	end
 	
 	#need to generate a random color for the graphs, this could be better like specific colors for specific actions across the board, but this will do for now

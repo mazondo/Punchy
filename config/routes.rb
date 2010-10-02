@@ -4,6 +4,12 @@ Timish::Application.routes.draw do |map|
   		get :autocomplete
   	end
   end
+  
+  namespace :reporting do
+  	resources :punches
+  	root :to => 'punches#index'
+  end
+  
   match 'clients' => 'clients#index', :as => :clients
   match 'clients/:client' => 'clients#show', :as => :client
   
