@@ -21,7 +21,7 @@ class PunchesControllerTest < ActionController::TestCase
       post :create, :punch => @punch.attributes
     end
 
-    assert_redirected_to punch_path(assigns(:punch))
+    assert_redirected_to punches_path
   end
 
   test "should show punch" do
@@ -36,7 +36,7 @@ class PunchesControllerTest < ActionController::TestCase
 
   test "should update punch" do
     put :update, :id => @punch.to_param, :punch => @punch.attributes
-    assert_redirected_to punch_path(assigns(:punch))
+    assert_redirected_to punches_path
   end
 
   test "should destroy punch" do
