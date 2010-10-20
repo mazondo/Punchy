@@ -1,4 +1,5 @@
-Timish::Application.routes.draw do |map|
+Timish::Application.routes.draw do
+
   resources :punches do
   	collection do
   		get :autocomplete
