@@ -19,7 +19,7 @@ gem 'rails', '3.0.0'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 # gem 'aws-s3', :require => 'aws/s3'
 gem "will_paginate"
 gem "acts-as-taggable-on"
@@ -31,3 +31,5 @@ gem "gchartrb"
 # group :test do
 #   gem 'webrat'
 # end
+
+
