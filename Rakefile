@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Punchy::Application.load_tasks
+Timish::Application.load_tasks
