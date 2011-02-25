@@ -12,7 +12,10 @@ That's it!  Punchy will keep track of all the minutes you work and let you know 
 
 I developed Punchy so I could log the time I spend on various projects the way I choose to - with minimal interference in my day.  I prefer to work without interference and then log my time after the fact.
 
+
 ==Deploying on Heroku
+You got to get rid of Gemfile.lock so that it can be regenerated at heroku without sqlite3-ruby.
+
 
 Punchy can be deployed on Heroku!  To do so, you just need to make sure you use the bamboo stack because Punchy uses Rails 3.0.  Run the following commands to get up and running in seconds:
 
@@ -20,15 +23,29 @@ heroku create your_subdomain --stack bamboo-ree-1.8.7
 git push heroku master
 heroku rake db:migrate
 
-and you're done!
+and you're done, except the time zone defaults to UTC. 
+
 
 ==But the days are all messed up?
 
-Punchy is currently set to US Mountain Time.  If you live elsewhere, you'll need to update the setting in config/application.rb to suit your needs.
+Punchy is currently set to UTC.  If you live elsewhere, you'll need to run: 
+
+  rake time:zones:all 
+
+in your local environment to get a legal list of values. Pick a relevant one and then run:
+
+  heroku config:add MY_TIME_ZONE="Eastern Time (US & Canada)"
 
 ==License
 
 Released under the MIT License:
+
+Copyright (c) 2011 Jay Godse
+
+License: MIT - same as the one from Ryan Quinn below. 
+
+
+This app was derived from Ryan Quinn's Punchy, with the following license. 
 
  Copyright (c) 2010 Ryan Quinn
 
