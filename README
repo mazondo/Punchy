@@ -14,16 +14,13 @@ I developed Punchy so I could log the time I spend on various projects the way I
 
 
 ==Deploying on Heroku
-You got to get rid of Gemfile.lock so that it can be regenerated at heroku without sqlite3-ruby.
-
-
 Punchy can be deployed on Heroku!  To do so, you just need to make sure you use the bamboo stack because Punchy uses Rails 3.0.  Run the following commands to get up and running in seconds:
 
 heroku create your_subdomain --stack bamboo-ree-1.8.7
 git push heroku master
 heroku rake db:migrate
 
-and you're done, except the time zone defaults to UTC. 
+and you're done, except the time zone defaults to UTC. Read the next section to setup your own timezone.
 
 
 ==But the days are all messed up?
@@ -47,7 +44,7 @@ License: MIT - same as the one from Ryan Quinn below.
 
 This app was derived from Ryan Quinn's Punchy, with the following license. 
 
- Copyright (c) 2010 Ryan Quinn
+ Copyright (c) 2011 Ryan Quinn
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
