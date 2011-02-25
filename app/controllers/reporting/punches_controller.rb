@@ -30,6 +30,12 @@ class Reporting::PunchesController < ApplicationController
   def index
   	@reporting = true
     @punches = Punch
+    if params[:from]
+    	@punches = @punches.where("created_at > ?", params[:from])
+	end
+	if params[:to]
+		@punches2 = @punches.where("created_at < ?", params[:to])
+	end
     if params[:act]
     	@punches = @punches.tagged_with(params[:act], :as => :action)
 	end
